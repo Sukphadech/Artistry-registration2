@@ -471,7 +471,7 @@ btn_paid.addEventListener("click", async () => {
       };
 
       // 🌐 URL ของ Google Apps Script
-      const scriptUrl = "https://script.google.com/macros/s/AKfycbzTGULQ016WtpCJlI2JT4Xhy-XByiwMsKhGS737kTqgs2mP3F53DmKK3pSAIUijHxybjA/exec";
+      const scriptUrl = "https://corsproxy.io/?" + encodeURIComponent("https://script.google.com/macros/s/AKfycbwtHkVSkFff1aYurso1-vULVl_zOiwlw1rjttppsv5pHEXzrlDR0qyRYWOGmprURMLOuQ/exec");
 
       try {
         console.log("📤 กำลังส่งข้อมูล:", payload);
@@ -481,14 +481,8 @@ btn_paid.addEventListener("click", async () => {
           body: JSON.stringify(payload)
         });
 
-        const result = await response.json();
-        console.log("ผลลัพธ์จาก Server:", result);
 
-        if (result.success) {
-          alert("✅ อัปโหลดสำเร็จ!");
-        } else {
-          alert("❌ ไม่พบผู้ใช้ในชีต หรืออัปโหลดไม่สำเร็จ");
-        }
+        
       } catch (err) {
         console.error("เกิดข้อผิดพลาด:", err);
         alert("⚠️ เกิดข้อผิดพลาดในการอัปโหลด");
