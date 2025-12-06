@@ -533,6 +533,13 @@ Check Box
   background: url("../images/img_Artistry_poster.jfif") center center/cover no-repeat;
   padding-top: 350px;
 }
+@media (max-width: 600px) {
+  .card-1 .card-heading {
+    padding-top: 100%;
+  }
+}
+
+
 
 .card-1 .card-body {
   padding: 0 90px;
