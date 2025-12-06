@@ -535,7 +535,7 @@ Check Box
 }
 @media (max-width: 600px) {
   .card-1 .card-heading {
-    padding-top: 100%;
+    padding-top: 250;
   }
 }
 
