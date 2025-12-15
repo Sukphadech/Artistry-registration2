@@ -1,6 +1,8 @@
 
 const SUPABASE_URL = "https://lrkaigodgewdhncqdzpz.supabase.co";
-const SUPABASE_KEY = "sb_publishable_sKcAGI3Y4nuRRoazBdGQcw_lJZILGpg"; 
+const SUPABASE_KEY = "sb_publishable_sKcAGI3Y4nuRRoazBdGQcw_lJZILGpg";
+let cachedData = [];
+
 
 
 async function loadTable() {
@@ -57,8 +59,7 @@ async function loadTable() {
         // 3) ไม่ sort fullname — คืนค่า 0
         return 0; 
     });
-
-
+    cachedData = data;
     tableBody.innerHTML = "";
 
     data.forEach(row => {
@@ -77,6 +78,7 @@ async function loadTable() {
 
         tableBody.appendChild(tr);
     });
+
 }
 
 
@@ -123,4 +125,43 @@ function closeSlipModal() {
     document.getElementById("slipModal").style.display = "none";
 }
 
+
+function showSummary() {
+
+    if (!cachedData || cachedData.length === 0) {
+        alert("ยังไม่มีข้อมูล กรุณาโหลดตารางก่อน");
+        return;
+    }
+
+    const total = cachedData.length;
+    const paid = cachedData.filter(d => d.status === "จ่ายแล้ว");
+
+    const groupCount = {};
+    paid.forEach(p => {
+        const key = p.line_name || "ไม่ระบุ";
+        groupCount[key] = (groupCount[key] || 0) + 1;
+    });
+
+    let html = `
+        <h3>📊 สรุปการลงทะเบียน</h3>
+        <p>👥 ผู้ลงทะเบียนทั้งหมด: <b>${total}</b> คน</p>
+        <p>💰 ชำระเงินแล้ว: <b>${paid.length}</b> คน</p>
+        <hr>
+        <b>แยกตามสายงาน (จ่ายแล้ว)</b>
+        <ul>
+    `;
+
+    for (const g in groupCount) {
+        html += `<li>${g} : ${groupCount[g]} คน</li>`;
+    }
+
+    html += "</ul>";
+
+    document.getElementById("summaryBox").innerHTML = html;
+}
+
+
+
 loadTable();
+
+
