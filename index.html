@@ -1,198 +1,117 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="th">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Colorlib Templates">
-    <meta name="author" content="Colorlib">
-    <meta name="keywords" content="Colorlib Templates">
+    <title>beyond25 Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Artistry Register</title>
+    <!-- CSS เดิม -->
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
 
-    <!-- Icons -->
-    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
-
-    <!-- Vendor CSS -->
-    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
-
-    <!-- Main CSS -->
-    <link href="css/main.css" rel="stylesheet" media="all">
-
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
 </head>
 
 <body>
-    <div class="page-wrapper bg-gray p-t-100 p-b-100 font-robo">
-        <div class="wrapper wrapper--w680">
-            <div class="card card-1">
 
-                <!-- ✅ ย้ายสไลด์มาไว้ใน card-heading -->
-                <div class="card-heading">
-                    <div class="swiper mySwiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img src="images/img_Artistry_poster.jfif" alt="Artistry Poster">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="images/img_Artistry_guest.jfif" alt="Artistry Poster 2">
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                </div>
+<div class="page-wrapper bg-gray p-t-100 p-b-100 font-robo">
+  <div class="wrapper wrapper--w680">
+    <div class="card card-1">
 
-                <div class="card-body">
-                    <h2 class="title">ลงทะเบียน</h2>
-                    <div style="text-align: left; margin: 20px 0;">
-                        <button onclick="window.location.href='artistry_table.html'"
-                                style="padding: 10px 22px; 
-                                    background: #6c1b9a; 
-                                    color: white; 
-                                    border: none; 
-                                    border-radius: 8px;
-                                    cursor: pointer;
-                                    font-size: 16px;">
-                            ตรวจสอบรายชื่อผู้ลงทะเบียน
-                        </button>
-                    </div>
-
-
-                    <form method="POST" id="registerForm">
-
-                        <div class="input-group">
-                            <div class="rs-select2 js-select-simple">
-                                <select id="userList" name="userList">
-                                    <option disabled selected>กำลังโหลดรายชื่อ....</option>
-                                </select>
-
-                                <div class="select-dropdown">
-                                    <input type="text" id="searchUser" class="search-box" placeholder="ค้นหารายชื่อ...">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="checkbox-group">
-                            <label class="form-check-label me-4 d-flex align-items-center">
-                                <input class="form-check-input-square me-2" type="checkbox" id="NotRegister" />
-                                ยังไม่เคยลงทะเบียนในฐานข้อมูล beyond24
-                            </label>
-                        </div>
-
-                        <br>
-
-                        <div class="input-group">
-                            <div class="rs-select2 js-select-simple select--no-search">
-                                <select id="line" name="class">
-                                    <option disabled selected>สายงาน</option>
-                                    <option value="PTอ๊อฟ01">PTอ๊อฟ01</option>
-                                    <option value="PTอ๊อฟ02">PTอ๊อฟ02</option>
-                                    <option value="PTอ๊อฟXX">PTอ๊อฟXX</option>
-                                </select>
-                                <div class="select-dropdown"></div>
-                            </div>
-                        </div>
-
-                        <div class="form-outline mb-4">
-                            <div class="input-group">
-                                <input id="fullname" class="input--style-1" type="text" placeholder="ชื่อ-นามสกุล" name="fullname">
-                            </div>
-                            <div class="input-group">
-                                <input id="nickname" class="input--style-1" type="text" placeholder="ชื่อเล่น" name="nickname">
-                            </div>
-
-                            <div class="checkbox-group" id="paid_type">
-                                <label class="form-check-label me-4 d-flex align-items-center">
-                                    <input class="form-check-input-square me-2" type="checkbox" id="paid_now" />
-                                    ต้องการชำระ
-                                </label>
-
-                                <label class="form-check-label d-flex align-items-center">
-                                    <input class="form-check-input-square me-2" type="checkbox" id="paid_later" />
-                                    ยังไม่ชำระ
-                                </label>
-                            </div>
-                            <div class="underline"></div>
-                        </div>
-
-                        <div id="inf_error"></div>
-
-                        <div class="p-t-20">
-                            <button id="btn_registerSubmit" class="btn btn--radius btn--color" type="button">ลงทะเบียน</button>
-                        </div>
-
-                    </form>
-                </div>
-
+      <!-- ===== Poster / Slide ===== -->
+      <div class="card-heading">
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="images/img_Artistry_poster.jfif">
             </div>
-        </div>
-    </div>
-
-    <!-- Payment Section -->
-    <div class="page-wrapper bg-gray p-b-100 font-robo">
-        <div class="wrapper wrapper--w680">
-            <div class="card card-1">
-                <div class="card-body">
-
-                    <h2 class="title">การชำระเงิน</h2>
-
-                    <div class="bank-info" style="font-size: 16px; line-height: 1.8;">
-                        ธนาคารกรุงศรีอยุธยา เลขที่บัญชี <br>
-                        <span id="accountNumber" style="font-weight: bold;">7774866328</span> 
-                        ธีรพงษ์ นิลมานนท์
-                        <button id="copyBtn" class="copyBtn">คัดลอก</button>
-                    </div>
-
-                    <br>
-
-                    <form method="POST" id="paymentForm">
-
-                        <div class="p-t-20">
-                            <button id="btn_edit" class="btn btn--radius btn--color" type="button">แก้ไขข้อมูล</button>
-                        </div>
-
-                        <br>
-
-                        <div id="conclude" class="info-box mt-3">
-                            <p class="mb-0"></p>
-                        </div>
-
-                        <br>
-
-                        <div class="upload-box mb-4">
-                            <label for="paymentSlip" class="form-label fw-bold">อัปโหลดหลักฐานการชำระเงิน</label>
-                            <input type="file" class="form-control" id="paymentSlip" accept="image/*" />
-                            <small class="text-muted">รองรับไฟล์ .jpg, .jpeg, .png</small>
-                        </div>
-
-                        <div class="p-t-20">
-                            <button id="btn_paid" class="btn btn--radius btn--color" type="button">ชำระเงิน</button>
-                        </div>
-
-                    </form>
-
-                </div>
+            <div class="swiper-slide">
+              <img src="images/img_Artistry_guest.jfif">
             </div>
+          </div>
+          <div class="swiper-pagination"></div>
         </div>
+      </div>
+
+      <div class="card-body">
+        <h2 class="title">ลงทะเบียน</h2>
+
+        <!-- ✅ ปุ่มดูรายชื่อ (ยังใช้ได้) -->
+        <div style="margin:20px 0;">
+          <button onclick="location.href='artistry_table.html'"
+            style="padding:10px 22px;
+                   background:#9333c0;
+                   color:#fff;
+                   border:none;
+                   border-radius:8px;
+                   font-size:16px;
+                   cursor:pointer;">
+            ตรวจสอบรายชื่อผู้ลงทะเบียน
+          </button>
+        </div>
+
+        <!-- 🔒 ข้อความปิดระบบ -->
+        <div id="closedMessage"
+          style="display:none;
+                 background:#fff3cd;
+                 color:#856404;
+                 padding:15px;
+                 border-radius:8px;
+                 font-size:16px;">
+          ⛔ ขณะนี้หมดเวลาซื้อบัตรแล้ว  
+          <br>สามารถตรวจสอบรายชื่อผู้ลงทะเบียนได้เท่านั้น
+        </div>
+
+        <!-- 🔒 ส่วนลงทะเบียนเดิม (ถูกซ่อนไว้) -->
+        <div id="registrationSection">
+
+          <!-- ===== FORM เดิม (ยังอยู่ครบ) ===== -->
+          <form id="registerForm">
+            <!-- ไม่ลบอะไร เผื่อเปิดใช้ในอนาคต -->
+          </form>
+
+          <!-- ===== PAYMENT เดิม ===== -->
+          <div class="page-wrapper bg-gray p-b-100 font-robo">
+            <div class="wrapper wrapper--w680">
+              <div class="card card-1">
+                <div class="card-body">
+                  <h2 class="title">การชำระเงิน</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
     </div>
+  </div>
+</div>
 
-    <!-- JS -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/select2/select2.min.js"></script>
-    <script src="vendor/datepicker/moment.min.js"></script>
-    <script src="vendor/datepicker/daterangepicker.js"></script>
+<!-- JS -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script>
+  // 🔧 เปิด / ปิดระบบลงทะเบียน
+  const REGISTRATION_OPEN = false; // ← เปลี่ยนเป็น true เมื่อเปิดขายอีกครั้ง
 
-    <script src="js/global.js"></script>
+  const section = document.getElementById("registrationSection");
+  const message = document.getElementById("closedMessage");
 
+  if (!REGISTRATION_OPEN) {
+    section.style.display = "none";
+    message.style.display = "block";
+  }
+</script>
+
+<script>
+  new Swiper(".mySwiper", {
+    pagination: { el: ".swiper-pagination" }
+  });
+</script>
 
 </body>
 </html>
